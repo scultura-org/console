@@ -27,7 +27,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: |
-          apt-get install python2 -y
+          sudo apt-get update
+          sudo apt-get install python2 -y
           
           yarn
           yarn build

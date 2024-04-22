@@ -30,23 +30,3 @@ RUN mv /kubesphere/server/locales \
        /kubesphere/server/config.yaml /out/server/
 #RUN ["/bin/bash", "-c", "mv /kubesphere/server/{locales,public,sample,views,config.yaml} /out/server/"]
 RUN mv /kubesphere/package.json /out/
-
-##############
-# Final Image
-##############
-FROM node:14-alpine as base_os_context
-
-RUN adduser -D -g kubesphere -u 1002 kubesphere && \
-    mkdir -p /opt/kubesphere/console && \
-    chown -R kubesphere:kubesphere /opt/kubesphere/console
-
-WORKDIR /opt/kubesphere/console
-COPY --from=builder /out/ /opt/kubesphere/console/
-
-RUN mv dist/server.js server/server.js
-USER kubesphere
-
-EXPOSE 8080
-
-CMD ["npm", "run", "serve"]
-

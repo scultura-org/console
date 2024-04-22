@@ -27,4 +27,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 -f build/Dockerfile -t ${HUB}/ks-console:v3.3.2 --push .
+          yarn
+          yarn build
+#          docker buildx build --platform linux/amd64,linux/arm64 -f build/Dockerfile -t ${HUB}/ks-console:v3.3.2 --push .

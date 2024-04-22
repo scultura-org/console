@@ -25,6 +25,8 @@ jobs:
           registry: ${{ env.HUB }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to GitHub Packages
+      - name: Build
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 -f build/Dockerfile -t ${HUB}/ks-console:v3.3.2 --push .
+         yarn
+         make build
+         make container-cross-push

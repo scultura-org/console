@@ -31,4 +31,4 @@ jobs:
           
           cp -R ./build-out/out ./out
         
-          docker buildx build -f build/Dockerfile.dapper -t ghcr.io/scultura-org/console/ks-console:v3.3.2 --push .
+          docker buildx build --platform linux/amd64,linux/arm64 -f build/Dockerfile.dapper -t ghcr.io/scultura-org/console/ks-console:v3.3.2 --push .

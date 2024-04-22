@@ -31,8 +31,8 @@ jobs:
           sudo apt-get install python2 -y
       - name: Build
         run: |
-          npm install -g node-gyp
-          npm install -g npm
+          sudo npm install -g node-gyp
+          sudo npm install -g npm
           
           yarn
           yarn build

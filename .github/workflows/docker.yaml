@@ -27,8 +27,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: |
-          docker build -f build/Dockerfile -o type=local,dest=./out .
+          docker build -f build/Dockerfile -o type=local,dest=./build-out .
           
-          cp -R /out/out ./out
+          cp -R ./build-out/out ./out
         
           docker buildx build -f build/Dockerfile.dapper -t ghcr.io/scultura-org/console/ks-console:v3.3.2 --push .

@@ -25,11 +25,14 @@ jobs:
           registry: ${{ env.HUB }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build
+      - name: Set up Python2
         run: |
           sudo apt-get update
           sudo apt-get install python2 -y
-          
+          npm install -g node-gyp
+          npm install -g npm
+      - name: Build
+        run: |          
           yarn
           yarn build
 #          docker buildx build --platform linux/amd64,linux/arm64 -f build/Dockerfile -t ${HUB}/ks-console:v3.3.2 --push .

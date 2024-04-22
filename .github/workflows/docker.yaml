@@ -29,4 +29,6 @@ jobs:
         run: |
           docker build -f build/Dockerfile -o type=local,dest=./out .
           
-          ls -la ./out
+          cp -R /out/out ./out
+        
+          docker buildx build -f build/Dockerfile.dapper -t ghcr.io/scultura-org/console/ks-console:v3.3.2 --push .

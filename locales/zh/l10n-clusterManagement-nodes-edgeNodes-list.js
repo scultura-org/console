@@ -18,7 +18,7 @@
 module.exports = {
   // Banner
   EDGE_NODE_PL: '边缘节点',
-  EDGE_NODE_DESC: '边缘节点是部署在 KubeSphere 集群外部的服务器，您可以将边缘节点添加到 KubeSphere 集群以对其进行管理。',
+  EDGE_NODE_DESC: '边缘节点是部署在集群外部的服务器，您可以将边缘节点添加到集群以对其进行管理。',
   // Node Count
   // List
   EDGE_NODE_EMPTY_DESC: '请为集群添加一个边缘节点。',
